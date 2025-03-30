@@ -5,6 +5,7 @@ from dash import dcc, html, Input, Output, Dash
 import plotly.graph_objects as go
 
 df = pd.read_csv('FIFA_data.csv')
+df['Team'] = df['Team'].replace({'England': 'United Kingdom'})
 df['Winners'] = pd.to_numeric(df['Winners'], errors='coerce')
 winers_data = df[df['Winners'] > 0].copy()
 
